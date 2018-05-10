@@ -443,6 +443,7 @@ def build_fuzzers(args):
         '%s:%s' % (_get_absolute_path(args.source_path), workdir),
     ]
   command += [
+        '-v', '%s:/root' % os.path.join(BUILD_DIR, 'root', project_name),
       '-v', '%s:/out' % project_out_dir,
       '-v', '%s:/work' % project_work_dir,
       '-t', 'gcr.io/oss-fuzz/%s' % project_name
